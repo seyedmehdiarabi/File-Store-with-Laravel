@@ -1,0 +1,38 @@
+.c-field{
+    max-width: 50%;
+}
+.total-width{
+    max-width: 100% !important;
+}
+.v-text-field__details{
+    padding-right: 0px !important;
+}
+.search-box{
+    padding: 15px 15px 0px 15px;
+}
+.panel-menu .v-list-item__title a{
+    color: white;
+}
+.v-list-item--active{
+    background: rebeccapurple !important;
+    color: white !important;
+}
+.v-navigation-drawer__content{
+    overflow-y: hidden !important;
+}
+.navigation-drawer .v-list-group__items .v-list-item{
+    padding-right:25px !important;
+}
+.navigation-drawer .v-list-group__items .v-list-item .v-list-item__title{
+    font-size: 14px !important;
+}
+.tag-input .v-chip--select{
+    color: white;
+    background-color: #4caf50 !important;
+}
+.tag-input .v-icon{
+    color: white !important;
+}
+.c-field .v-text-field--outlined.v-input--has-state fieldset, .v-text-field--outlined.v-input--is-focused fieldset{
+    border: 1px solid !important;
+}

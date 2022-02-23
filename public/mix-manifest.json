@@ -1,0 +1,7 @@
+{
+    "/js/vue2.js": "/js/vue2.js",
+    "/modules/users/component.js": "/modules/users/component.js",
+    "/modules/theme1/component.js": "/modules/theme1/component.js",
+    "/modules/panelTheme/component.js": "/modules/panelTheme/component.js",
+    "/modules/visitStatistics/component.js": "/modules/visitStatistics/component.js"
+}

@@ -1,0 +1,26 @@
+.progress_box {
+    width: 100%;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.day-week {
+    width: 100px;
+    font-size: 14px;
+}
+
+.h_div {
+    width: 50px;
+    height: 40px;
+    border: 1px solid #f6f6f6;
+    cursor: pointer;
+}
+
+.hour_div {
+    width: 50px;
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+}
