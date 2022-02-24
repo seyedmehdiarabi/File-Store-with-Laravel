@@ -7,7 +7,7 @@
     <meta name="app_url" content="{{ url(('/')) }}">
     <title>پنل مدیریت</title>
     {{ add_css_file('desktop') }}
-    <link href="{{ asset('themes/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('themes/AdminPanel/assets/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/fonts.css') }}" rel="stylesheet" />
     @yield('head')
 

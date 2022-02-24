@@ -19,6 +19,8 @@ class CreateAddStatisticsUserVisitTable extends Migration
             $table->smallInteger('month');
             $table->smallInteger('day');
             $table->ipAddress('ip');
+            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('view');
             $table->timestamps();
         });
     }

@@ -346,7 +346,9 @@ function registerVueFile($theme, $render = 'ssr', $type = 'develop')
         $vue_path = $type ? 'js/vue-develop.js' : 'js/vue.js';
         ?>
         <script src="<?= asset($vue_path) ?>?" type="text/javascript"></script>
-        <script src="<?= asset('js/widgets.js?id='.config('cms.widgetId')) ?>?" type="text/javascript"></script>
+
+<!--        <script src="<?= asset('js/widgets.js?id='.config('cms.widgetId')) ?>?" type="text/javascript"></script>
+        -->
         <script> loadComponent(<?= json_encode($files) ?>); </script>
         <script>
             setTimeout(function () {

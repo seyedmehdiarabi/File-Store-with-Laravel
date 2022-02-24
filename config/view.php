@@ -16,6 +16,7 @@ return [
     'paths' => [
         resource_path('views'),
         base_path('themes/AdminPanel/views'),
+        base_path('themes/theme1/views'),
     ],
 
     /*

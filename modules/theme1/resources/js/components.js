@@ -1,14 +1,5 @@
-Vue.component('product-box',require('./components/ProductBox').default);
-Vue.component('mobile-product-box',require('./components/MobileProductBox').default);
-Vue.component('desktop-share-box',require('./components/DesktopShareBox').default);
+Vue.component('auth-menu',require('./components/AuthMenu').default);
 Vue.component('shop-nav',require('./components/ShopNav').default);
-Vue.component('product-page-skeleton',require('./components/ProductPageSkeleton').default);
-Vue.component('product-page-tabs',require('./components/ProductPageTabs').default);
-Vue.component('product-detail',require('./components/ProductDetail').default);
 Vue.component('mobile-app-bar',require('./components/MobileAppBar').default);
 Vue.component('mobile-progress-box',require('./components/MobileProgressBox').default);
 Vue.component('header-search',require('./components/HeaderSearch').default);
-Vue.component('auth-menu',require('./components/AuthMenu').default);
-Vue.component('child-cat-ul',require('./components/ChildCatUl').default);
-Vue.component('desktop-filter-list',require('./components/DesktopFilterList').default);
-Vue.component('mobile-filter-list',require('./components/MobileFilterList').default);
