@@ -12,6 +12,7 @@ import(/* webpackChunkName:'visitStatistics' */'../../modules/visitStatistics/re
 
 
 
+
 import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
 
 Vue.use(VuePersianDatetimePicker, {

@@ -15,8 +15,9 @@ class Module
     public function registerComponent()
     {
         if (!request()->is('admin/*') && !request()->is('admin')) {
-            return veu_component_detail('theme1');
+            return vue_component_detail('theme1');
         }
     }
+
 
 }

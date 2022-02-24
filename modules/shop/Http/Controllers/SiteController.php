@@ -10,7 +10,7 @@ class SiteController extends Controller
 {
     public function index()
     {
-        return view(  $this->view.'index');
+        return Cview(  $this->view.'index');
     }
 
 }

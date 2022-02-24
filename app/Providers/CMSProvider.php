@@ -42,6 +42,19 @@ class CMSProvider extends ServiceProvider
      */
     public function boot()
     {
+        $moduleMainClass=Config::get('app.modulesMainClass',[]);
+        $front_theme=Config::get('cms.front-theme');
+        if($front_theme){
+            $file_path=base_path($front_theme.'/Module.php');
+            $front_theme=str_replace("/","\\",$front_theme);
+            $className="$front_theme\\Module";
+            if(class_exists($className)){
+                require_once ($file_path);
+                $moduleMainClass['front_theme']=new $className;
+                Config::set('app.modulesMainClass',$moduleMainClass);
+            }
+            $this->addThemeHelpers($front_theme);
+        }
     }
 
     public function addProvider()
@@ -81,23 +94,35 @@ class CMSProvider extends ServiceProvider
 
     protected function add_default_admin_menu(){
         add_panel_menu([
-            'label' => 'میزکار',
-            'icon' => 'mdi-desktop-classic',
+            'label' => 'مشاهده فروشگاه',
+            'icon' => 'mdi-web',
             'access' => 'public',
             'url' => url('/')
         ], 0);
+        add_panel_menu([
+            'label' => 'پروفایل کاربری',
+            'icon' => 'mdi-shield-account',
+            'access' => 'public',
+            'url' => url('user/profile')
+        ], 1);
+        add_panel_menu([
+            'label' => 'میزکار',
+            'icon' => 'mdi-desktop-classic',
+            'access' => 'public',
+            'url' => url('admin')
+        ], 2);
         add_panel_menu([
             'name' => 'finance',
             'label' => 'امور مالی',
             'icon' => 'mdi-currency-usd',
             'access' => 'finance|wallet',
-        ], 1);
+        ], 3);
         add_panel_menu([
             'label'=>'پیام ها',
             'icon'=>'mdi-android-messages',
             'access'=>'messages',
             'name' => 'messages'
-        ],2);
+        ],8);
     }
     protected function addThemeHelpers($theme){
         $file_path=base_path($theme.'/helpers.php');
