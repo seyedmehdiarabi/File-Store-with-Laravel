@@ -25,25 +25,34 @@ class RegisterController extends \App\Http\Controllers\Auth\RegisterController
 
     public function showRegistrationForm()
     {
-        $layout = $this->view == 'mobile.' ? 'mobile-auth' : 'desktop';
-        $margin = $this->view == 'mobile.' ? '10' : '25';
-        return view('users::auth.register', ['layout' => $layout, 'margin' => $margin]);
+        return redirect('/login-register');
     }
 
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'mobile' => ['required', new ValidateMobileNumber()],
-            'password' => ['required', 'string', 'min:6'],
-        ], [], ['mobile' => 'شماره موبایل', 'password' => 'کلمه عبور']);
+            'name' => ['required', 'string', 'min:6'],
+            'r_mobile' => ['required','unique:users,mobile', new ValidateMobileNumber()],
+            'r_email' => ['required', 'string', 'email', 'max:255','unique:users,email'],
+            'r_password' => ['required', 'string', 'min:6','same:password_confirmation'],
+            'g-recaptcha-response'=>'required|captcha',
+        ], [], [
+            'name' => 'نام و نام خانوادگی',
+            'r_mobile' => 'شماره موبایل',
+            'r_email'=>'ایمیل',
+            'r_password' => 'کلمه عبور',
+            'g-recaptcha-response'=>'کپچا'
+        ]);
     }
 
     protected function create(array $data)
     {
         $active_code = rand(99999, 1000000);
         return User::create([
-            'mobile' => $data['mobile'],
-            'password' => Hash::make($data['password']),
+            'name' => $data['name'],
+            'mobile' => $data['r_mobile'],
+            'email' => $data['r_email'],
+            'password' => Hash::make($data['r_password']),
             'account_status' => 'InActive',
             'active_code' => $active_code,
             'role' => 'user'
@@ -63,9 +72,13 @@ class RegisterController extends \App\Http\Controllers\Auth\RegisterController
     protected function registered(Request $request, $user)
     {
         run_action('registered', [$user]);
-        return [
-            'status' => 'ok',
-        ];
+        return $this->get_active_account($user->mobile);
+        //return redirect('register/active_account');
+    }
+
+    public function get_active_account($mobile){
+        $layout=$this->view=='mobile.' ? 'mobile' : 'desktop';
+        return CView('users::auth.active_account',['layout'=>$layout,'mobile'=>$mobile]);
     }
 
     public function active_account(Request $request)

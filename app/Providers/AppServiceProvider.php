@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use View;
 
@@ -31,5 +32,23 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+        validator::extend('captcha',function (){
+            $secretKey  = "6LeL3WsdAAAAANTba6hkJTggFxntPRd9jf0pZQXE";
+            $statusMsg = '';
+            if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response']))
+            {
+                $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$_POST['g-recaptcha-response']);
+                $responseData = json_decode($verifyResponse);
+                if($responseData->success)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        });
     }
 }

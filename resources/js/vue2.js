@@ -9,6 +9,9 @@ import(/* webpackChunkName:'users' */'../../modules/users/resources/js/component
 import(/* webpackChunkName:'theme1' */'../../modules/theme1/resources/js/components.js');
 import(/* webpackChunkName:'panelTheme' */'../../modules/panelTheme/resources/js/components.js');
 import(/* webpackChunkName:'visitStatistics' */'../../modules/visitStatistics/resources/js/components.js');
+import(/* webpackChunkName:'cart' */'../../modules/cart/resources/js/components.js');
+import(/* webpackChunkName:'discount' */'../../modules/discount/resources/js/components.js');
+import(/* webpackChunkName:'orders' */'../../modules/orders/resources/js/components.js');
 
 
 

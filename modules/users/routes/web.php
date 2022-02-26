@@ -35,7 +35,9 @@ Route::middleware(['auth', 'user'])->group(function () {
 });
 
 Auth::routes();
-
+Route::middleware('guest')->group(function (){
+    Route::get( 'login-register', 'UsersController@login_register');
+});
 Route::get('/admin_login', 'auth\LoginController@admin_login_form')->middleware('guest');
 
 

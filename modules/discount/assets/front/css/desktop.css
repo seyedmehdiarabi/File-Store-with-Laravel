@@ -1,0 +1,31 @@
+.discount_input {
+    width: 100%;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    height: 47px;
+}
+.discount_btn {
+    font-size: 14px;
+    background: transparent;
+    position: absolute;
+    left: 22px;
+    top: 52px;
+}
+.discount_btn span {
+    font-size: 25px;
+}
+.discount_li {
+    display: none;
+}
+.DiscountBox .discount_btn {
+    left: 15px !important;
+    top: 40px !important;
+    border-radius: 5px 0 0 5px;
+    width: 50px !important;
+    height: 47px !important;
+}
+.DiscountBox .alert-danger, .DiscountBox .alert-success {
+    font-size: 12px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+}

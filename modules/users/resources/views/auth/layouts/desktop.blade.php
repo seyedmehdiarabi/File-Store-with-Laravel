@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="app_url" content="{{ url(('/')) }}">
-    <title>فروشگاه {{ config('shop-info.shop_name') }}</title>
+    <title>ثبت نام</title>
     {{ add_css_file('') }}
     <link rel="stylesheet" href="{{asset('css/fonts.css')}}">
 </head>

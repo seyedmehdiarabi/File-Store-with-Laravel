@@ -20,8 +20,7 @@ class LoginController extends \App\Http\Controllers\Auth\LoginController
 
     public function showLoginForm()
     {
-        $layout = $this->view == 'mobile.' ? 'mobile' : 'desktop';
-        return view('users::auth.login', ['layout' => $layout]);
+        return redirect('/login-register');
     }
 
     protected function validateLogin(Request $request)
@@ -29,10 +28,12 @@ class LoginController extends \App\Http\Controllers\Auth\LoginController
         $request->validate([
             $this->username() => 'required|string',
             'password' => 'required|string',
+            'g-recaptcha-response' => 'required|captcha',
         ], [], [
             'mobile' => 'شماره موبایل',
             'username' => 'نام کاربری',
-            'password' => 'کلمه عبور'
+            'password' => 'کلمه عبور',
+            'g-recaptcha-response' => 'کپچا'
         ]);
     }
 
@@ -41,7 +42,7 @@ class LoginController extends \App\Http\Controllers\Auth\LoginController
         $credentials = $request->only($this->username(), 'password');
         $credentials['account_status'] = 'active';
         $url = URL::previous();
-        if ($url == url('login')) {
+        if ($url == url('login-register')) {
             $credentials['role'] = 'user';
         } else {
             $credentials['role'] = 'admin';
@@ -52,10 +53,10 @@ class LoginController extends \App\Http\Controllers\Auth\LoginController
     public function username()
     {
         $url = URL::previous();
-        if ($url == url('login')) {
-            return 'mobile';
-        } else {
+        if ($url == url('admin_login')) {
             return 'username';
+        } else {
+            return 'mobile';
         }
     }
 
@@ -66,26 +67,32 @@ class LoginController extends \App\Http\Controllers\Auth\LoginController
 
     public function login(Request $request)
     {
-        if ($request->header('X-Xsrf-Token', NULL)) {
-            if (method_exists($this, 'hasTooManyLoginAttempts') && $this->hasTooManyLoginAttempts($request)) {
+        $this->validateLogin($request);
 
-                $this->fireLockoutEvent($request);
-                $seconds = $this->limiter()->availableIn(
-                    $this->throttleKey($request)
-                );
-                $message = Lang::get('auth.throttle', ['seconds' => $seconds]);
-                return ['status' => $message];
-            }
-            if ($this->attemptLogin($request)) {
-                $request->session()->regenerate();
-                $this->clearLoginAttempts($request);
-                $this->authenticated($request, $this->guard()->user());
-                return ['status' => 'ok'];
-            } else {
-                $this->incrementLoginAttempts($request);
-                return ['status' => 'شماره موبایل یا کلمه عبور وارد شده اشتباه می باشد'];
-            }
+        // If the class is using the ThrottlesLogins trait, we can automatically throttle
+        // the login attempts for this application. We'll key this by the username and
+        // the IP address of the client making these requests into this application.
+        if (method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
         }
+
+        if ($this->attemptLogin($request)) {
+            if ($request->hasSession()) {
+                $request->session()->put('auth.password_confirmed_at', time());
+            }
+
+            return $this->sendLoginResponse($request);
+        }
+
+        // If the login attempt was unsuccessful we will increment the number of attempts
+        // to login and redirect the user back to the login form. Of course, when this
+        // user surpasses their maximum number of attempts they will get locked out.
+        $this->incrementLoginAttempts($request);
+
+        return $this->sendFailedLoginResponse($request);
     }
 
     public function admin_login_form()

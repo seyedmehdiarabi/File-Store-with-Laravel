@@ -5,7 +5,6 @@
             :loading="loading"
             id="auth-box"
         >
-            <slot name="before-register-form"></slot>
             <v-row v-if="serverError">
                 <v-alert type="error">{{ serverError }}</v-alert>
             </v-row>
@@ -18,60 +17,7 @@
                 </v-alert>
             </v-row>
 
-            <div v-if="step===1">
-                <v-form v-model="valid" ref="form">
-
-                    <v-row>
-                        <v-text-field
-                            label="شماره موبایل"
-                            outlined
-                            v-model="mobile"
-                            :rules="[mobileRules.required,checkMobileNumber]"
-                        ></v-text-field>
-
-                    </v-row>
-
-                    <v-row>
-
-                        <v-text-field
-                            label="کلمه عبور"
-                            outlined
-                            v-model="password"
-                            :rules="passwordRules"
-                            type="password"
-                        ></v-text-field>
-
-                    </v-row>
-
-                    <v-row>
-                        <a class="router-link reset_password_link" :href="$siteUrl+'/password/reset'">بازیابی کلمه عبور</a>
-                    </v-row>
-
-                    <div class="send_btn" @click="register()">
-                        ثبت‌نام در فروشگاه
-                    </div>
-                    <v-row style="margin: 20px 0">
-                        <p style="">
-                            با ثبت‌نام در {{ shop_name }} شما
-                            <a href="" class="help_link">شرایط و قوانین</a>
-                            استفاده از سرویس‌های سایت {{ shop_name }} و
-                            <a href="" class="help_link">قوانین حریم خصوصی</a>
-                            آن را می‌پذیرید.
-                        </p>
-                    </v-row>
-
-                </v-form>
-
-                <v-alert class="alert-register">
-                    <span>قبلا در سایت ثبت‌نام کرده‌اید؟</span>
-                    <span>
-                        <a class="data_link" :href="$siteUrl+'/login'">وارد شوید!</a>
-                    </span>
-                </v-alert>
-
-            </div>
-
-            <div v-else-if="step===2">
+            <div >
                 <v-row>
                     <v-alert type="success" style="width: 100%">
                         <span style="font-size: 15px">کد تایید به شماره موبایل {{ replaceNumber(mobile) }} ارسال شد.</span>
@@ -120,13 +66,12 @@ import methods from "../methods";
 export default {
     name: "AuthRegisterBox",
     mixins: [methods],
-    props: ['shop_name'],
+    props:['mobile'],
     data() {
         return {
             serverError: false,
             loading: false,
             valid: false,
-            mobile: '',
             mobileRules: {
                 required: v => !!v || 'لطفا شماره موبایل خود را وارد نمایید',
             },
@@ -154,17 +99,11 @@ export default {
             render: 0
         }
     },
-    methods:{
-        showRegisterHome:function () {
-            this.step=1;
-            if (this.timeOut!==null){
-                clearInterval(this.timeOut);
-            }
-        }
-    }
 }
 </script>
 
 <style>
-@import "../../assets/auth.css";
+*{
+    font-family: IRANSansWeb!important;
+}
 </style>

@@ -1,178 +1,136 @@
-#auth-box {
-    background: #fff;
-    width: 430px;
-    margin: auto;
+*{
+
+}
+
+#auth-box{
+    background:#fff;
+    width:430px;
+    margin:auto;
     position: absolute;
     top: 50%;
     right: 50%;
-    -webkit-transform: translate(50%, -55%);
-    transform: translate(50%, -55%);
-    font-family: IRANYekanWeb;
+    -webkit-transform: translate(50%,-55%);
+    transform: translate(50%,-55%);
+    font-family:BYekan;
 }
-
-#auth-box .shop_logo {
-    max-width: 150px;
+#auth-box .shop_logo{
+    max-width:150px;
     display: block;
     margin: 20px auto;
 }
-
-#auth-box .row {
+#auth-box .row{
     margin: 5px 15px !important;
 }
-
-#auth-box .v-text-field--outlined.v-input--has-state fieldset, .v-text-field--outlined.v-input--is-focused fieldset {
+@font-face {
+    font-family:'BYekan';
+    src:url('fonts/BYekan.eot') format("embedded-opentype"),
+    url('fonts/BYekan.woff') format("woff"),
+    url('fonts/BYekan.ttf') format("truetype");
+}
+#auth-box .v-text-field--outlined.v-input--has-state fieldset, .v-text-field--outlined.v-input--is-focused fieldset{
     border-width: 1px !important;
 }
-
-.reset_password_link {
+.reset_password_link{
     font-size: 13px;
     color: #1ca2bd;
 }
-
-.send_btn {
-    background-color: #ef394e;
-    color: white;
-    width: calc(100% - 30px) !important;
-    height: 50px;
-    line-height: 50px;
-    cursor: pointer;
-    border: 1px solid #ef394e;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    position: relative;
-    margin: 0px 15px 15px;
+.send_btn{
+    background-color:#ef394e;
+    color:white;
+    width:calc(100% - 30px) !important;
+    height:50px;
+    line-height:50px;
+    cursor:pointer;
+    border:1px solid #ef394e;
+    border-radius:8px;
+    -webkit-border-radius:8px;
+    position:relative;
+    margin:0px 15px 15px;
     text-align: center;
 }
-
-#auth-box .v-input__slot {
+#auth-box .v-input__slot{
     min-height: 50px;
 }
-
-#auth-box .v-text-field--outlined .v-label {
-    top: 15px !important;
+#auth-box .v-text-field--outlined .v-label{
+    top:15px !important;
     font-size: 15px !important;
 }
-
-#auth-box .alert-register {
+#auth-box .alert-register{
     color: #856404;
     background-color: #fff3cd;
     border-color: #ffeeba;
     text-align: center;
 }
-
-#auth-box .alert-register {
+#auth-box .alert-register{
     margin-bottom: 0px !important;
 }
-
 .data_link {
     color: #1ca2db !important;
     border-bottom: 1px dashed #1ca2db;
 }
-
-#auth-box a {
+#auth-box a{
     text-decoration: none !important;
 }
-
-#auth-box .v-input--selection-controls {
+#auth-box .v-input--selection-controls{
     margin: 0px !important;
 }
-
-#auth-box .v-alert {
+#auth-box .v-alert{
     width: 100% !important;
 }
-
-.remember-check-box .v-input__slot {
+.remember-check-box .v-input__slot{
     min-height: 30px !important;
 }
-
 .user-detail-table tr td span {
     color: black !important;
     width: 100%;
     display: block;
-    margin-top: 5px;
+    margin-top:5px;
 }
-
-.user-detail-table tr td {
+.user-detail-table tr td{
     padding: 1rem;
-    font-size: 16px;
+    font-size:16px;
 }
-
-.user-detail-table tr td a {
+.user-detail-table tr td a{
     display: flex;
     justify-content: space-between;
     color: #c2c2c2;
-    width: 100%;
+    width:100%;
 }
-
-.user-detail-table tr td {
+.user-detail-table tr td{
     color: #bababa;
     width: 50% !important;
 }
-
 .table {
     width: 100% !important;
     border-collapse: collapse;
 }
-
 .table-bordered {
     border: 1px solid #dee2e6;
 }
-
 .table-bordered td {
     border: 1px solid #dee2e6;
 }
-
 #resend_active_code {
     font-size: 14px;
     cursor: pointer;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
-.active-code-counter {
+.active-code-counter{
 
 }
-
-.code-field {
+.code-field{
     width: 40px;
     margin: 5px !important;
 }
-
-.code-field input {
+.code-field input{
     text-align: center !important;
 }
-
-@media (max-width: 500px) {
-    .v-sheet.v-card:not(.v-sheet--outlined) {
+@media (max-width:500px) {
+    .v-sheet.v-card:not(.v-sheet--outlined){
         box-shadow: none !important;
     }
-
-    .theme--light.v-application {
-        background-color: white !important;
-    }
 }
-
-.v-picker--date.theme--light {
+.v-picker--date.theme--light{
     width: 100% !important;
-}
-
-.edit-number-register {
-    margin-top: 5px;
-    display: flex;
-    justify-content: end;
-}
-
-.edit-number-register .v-btn {
-    letter-spacing: normal !important;
-}
-
-.box-insert-additional-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    align-items: baseline;
-}
-
-.box-insert-additional-info span {
-    text-align: right !important;
 }

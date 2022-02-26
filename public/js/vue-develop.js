@@ -2652,7 +2652,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.loading_box[data-v-44f4f918] {\n    background-color: rgba(209, 209, 209, 0.49);\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    width: 100%;\n    z-index: 1000000;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.loading_box[data-v-44f4f918] {\r\n    background-color: rgba(209, 209, 209, 0.49);\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    width: 100%;\r\n    z-index: 1000000;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -63019,8 +63019,8 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.$productUrlParam = '/';
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('app-content', (__webpack_require__(/*! ./components/AppContent */ "./resources/js/components/AppContent.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('progress-box', (__webpack_require__(/*! ./components/Progress */ "./resources/js/components/Progress.vue")["default"]));
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].use((vuetify__WEBPACK_IMPORTED_MODULE_4___default()));
-window.Vuetify = (vuetify__WEBPACK_IMPORTED_MODULE_4___default());
+    vue__WEBPACK_IMPORTED_MODULE_0__["default"].use((vuetify__WEBPACK_IMPORTED_MODULE_4___default()));
+    window.Vuetify = (vuetify__WEBPACK_IMPORTED_MODULE_4___default());
     window.loadComponent=function(files){
         for (let j = 0; j <files.length; j++) {
             __webpack_require__.e(files[j]['code1'])

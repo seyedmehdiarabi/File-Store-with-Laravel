@@ -23,6 +23,5 @@ mix.webpackConfig({
         chunkFilename: 'modules/[name]/component.js'
     },
 });
-
 //mix.js('resources/js/vue.js', 'public/js/vue-develop.js').vue();
 mix.js('resources/js/vue2.js', 'public/js/vue2.js').vue();

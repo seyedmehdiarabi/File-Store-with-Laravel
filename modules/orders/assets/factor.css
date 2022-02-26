@@ -1,0 +1,74 @@
+body{
+    margin: 0 auto;
+    max-width: 29.7cm;
+    font-size: 9pt;
+    font-family: IRANSansWeb;
+    direction: rtl;
+    text-align: right;
+}
+@font-face {
+    font-family:'IRANSansWeb';
+    src:url('fonts/IRANSansWeb.eot') format("embedded-opentype"),
+    url('fonts/IRANSansWeb.woff') format("woff"),
+    url('fonts/IRANSansWeb.ttf') format("truetype");
+}
+.page h1{
+    margin-top:30px;
+}
+.header-item-wrapper{
+    border: 1px solid #000;
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.portait {
+    transform: rotate(-90deg) translate(0, 40%);
+}
+.info-box{
+    border: 1px solid #000;
+    width: 100%;
+    height: 100%;
+}
+.info-row{
+    display: flex;
+    width: 100%;
+    padding:15px;
+}
+.info-row div{
+    width: 25%;
+}
+.products{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+.products thead{
+    background: #eee;
+}
+.products td, th {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 0.3cm;
+    font-weight: normal;
+}
+#print_div button{
+    background-color: #0fabc6;
+    color: #fff;
+    border: 1px solid #0fabc6;
+    text-align: center;
+    padding: 8px 16px;
+    font-family: IRANSansWeb;
+    cursor: pointer;
+}
+.factor_footer{
+    width: 100%;
+    display: flex;
+    padding:40px;
+}
+.factor_footer div{
+    width: 50%;
+}
+

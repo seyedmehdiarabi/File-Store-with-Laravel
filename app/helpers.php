@@ -1,5 +1,8 @@
 <?php
 
+function get_price($price){
+    return replace_number(number_format($price)).' تومان';
+}
 
 function upload_file($request, $name, $directory, $pix = '')
 {
@@ -84,7 +87,7 @@ function remove_file($file_name, $directory)
 
 function getTimestamp($date, $type)
 {
-    $Jdf = new Jdf();
+    $Jdf = new \App\Lib\Jdf();
     $time = 0;
     $e = explode('/', $date);
     if (sizeof($e) == 3) {

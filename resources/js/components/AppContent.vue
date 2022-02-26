@@ -40,7 +40,7 @@ export default {
         this.$root.$on('send_get_request',function (url,loader) {
             self.getPageContent(url,loader);
         });
-
+        window.scrollTo({top: 0, behavior: 'smooth'});
         setTimeout(function () {
             self.addClickEvent(tags);
         },100);

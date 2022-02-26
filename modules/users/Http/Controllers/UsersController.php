@@ -36,6 +36,11 @@ class UsersController extends CustomController
         ]);
     }
 
+    public function login_register()
+    {
+        return view('users::auth.login-register');
+    }
+
     public function create(UserRoleRepositoryInterface $roleRepository)
     {
         $roles=$roles=['admin'=>'مدیر','user'=>'کاربر عادی']+$roleRepository->all();

@@ -19,7 +19,14 @@
                         :rules="[mobileRules.required,checkMobileNumber]"
                     ></v-text-field>
                 </v-row>
-                <div class="send-btn" @click="forgetPassword">بازیابی کلمه عبور</div>
+                <v-btn
+                    class="mb-4 mr-4"
+                    color="success"
+                    dark
+                    @click="forgetPassword"
+                >
+                    بازیابی کلمه عبور
+                </v-btn>
             </v-form>
         </div>
 
@@ -79,8 +86,14 @@
                         :rules="[password2Rules.required,confirmationPassword]"
                     ></v-text-field>
                 </v-row>
-
-                <div class="send-btn" @click="changePassword"> تغییر کلمه عبور</div>
+                <v-btn
+                    class="mb-4 mr-4"
+                    color="success"
+                    dark
+                    @click="changePassword"
+                >
+                    تغییر کلمه عبور
+                </v-btn>
 
             </v-form>
         </div>
@@ -168,5 +181,7 @@ export default {
 </script>
 
 <style>
-@import "../../assets/auth.css";
+ *{
+     font-family: IRANSansWeb !important;
+ }
 </style>

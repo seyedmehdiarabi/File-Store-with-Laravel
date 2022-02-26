@@ -1,0 +1,27 @@
+.DiscountBox {
+    padding: 5px 10px;
+    margin-bottom: 15px;
+}
+.DiscountBox .form-group {
+    position: relative;
+    margin-bottom: 10px !important;
+}
+.DiscountBox .discount_btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.discount_input {
+    border-radius: 0 5px 5px 0;
+    -webkit-border-radius: 0 5px 5px 0;
+    height: 50px;
+    display: flex;
+    width: 100%;
+}
+.discount_btn {
+    width: 45px !important;
+    height: 50px;
+    border-radius: 5px 0 0 5px;
+    -webkit-border-radius: 5px 0 0 5px;
+    font-size: 13px;
+}
