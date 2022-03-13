@@ -41,6 +41,8 @@ export default {
             self.getPageContent(url,loader);
         });
         window.scrollTo({top: 0, behavior: 'smooth'});
+        self.add_cart(self);
+        self.go_to_comments_body();
         setTimeout(function () {
             self.addClickEvent(tags);
         },100);
@@ -65,7 +67,11 @@ export default {
         },
         getPageContent:async function (url,loader) {
             window.history.pushState('', '', url);
-
+            const href=window.location.href;
+            let result = href.includes("admin/");
+            if (!result){
+                this.getCountCart();
+            }
             if(loader!=null){
                 this.customLoader=true;
                 this.componentName=loader;
@@ -120,6 +126,12 @@ export default {
                     window.location.href=e.response['reload'];
                 }
             }
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            const self=this;
+            setTimeout(function () {
+                self.add_cart(self);
+                self.go_to_comments_body();
+            },100);
         },
         addJsFile:async function (files) {
 
@@ -184,23 +196,34 @@ export default {
         },
         sendDeleteRequest:function (url) {
             this.$root.$emit('show_progress');
-            this.axios.delete(url).then(response=>{
-
-                if(response.data['message']!==undefined){
-                    this.$root.$emit('showResponse',response.data['message'],'success');
-                }
-
-                if(response.data['redirect_url']===undefined){
+            if (url.includes('del_cart')){
+                const formData = new FormData();
+                formData.append('request', 'axios');
+                this.axios.post(url,formData).then(response=>{
                     this.$root.$emit('hide_progress');
-                }
-                else{
-                    this.getPageContent(response.data['redirect_url']);
-                }
-            }).catch(error =>
-            {
-                this.$root.$emit('showResponse','خطا در اجرای درخواست،مجددا تلاش نمایید','error');
-                this.$root.$emit('hide_progress');
-            });
+                    const href=window.location.href;
+                    this.getPageContent(href);
+                });
+            }else{
+                this.axios.delete(url).then(response=>{
+                    if(response.data['message']!==undefined){
+                        this.$root.$emit('showResponse',response.data['message'],'success');
+                    }
+
+                    if(response.data['redirect_url']===undefined){
+                        this.$root.$emit('hide_progress');
+                    }
+                    else{
+                        this.getPageContent(response.data['redirect_url']);
+                    }
+                    const href=window.location.href;
+                    this.getPageContent(href);
+                }).catch(error =>
+                {
+                    this.$root.$emit('showResponse','خطا در اجرای درخواست،مجددا تلاش نمایید','error');
+                    this.$root.$emit('hide_progress');
+                });
+            }
         },
         send_post_request:function (url,data,headers) {
 
@@ -266,6 +289,47 @@ export default {
 
             });
         },
+        getCountCart:function () {
+            this.axios.get(this.$siteUrl+'/get_count_cart').then(response=>{
+                let a=document.getElementById("count_cart").lastElementChild.lastElementChild.innerHTML = response.data;
+            });
+        },
+        add_cart:function (self) {
+            const href=window.location.href;
+            let result = href.includes("product/");
+            if (result){
+                let add_cart=document.getElementById('add_cart');
+                add_cart.onclick=function () {
+                    self.$root.$emit('show_progress');
+                    let value=add_cart.value;
+                    const formData = new FormData();
+                    formData.append('product_id',value);
+                    formData.append('request-type','axios');
+                    self.axios.post(self.$siteUrl+'/add_cart',formData).then(response=>{
+                        self.$root.$emit('hide_progress');
+                        const href=window.location.href;
+                        self.getPageContent(href);
+                        if(response.data['message']!==undefined){
+                            const type=response.data['status']===undefined ? 'success' : response.data['status'];
+                            self.$root.$emit('showResponse',response.data['message'],type);
+                        }else{
+                            self.$root.$emit('showResponse','محصول با موفقيت به سبد خريد اضافه شد.','success');
+                        }
+                    });
+                };
+            }
+        },
+        go_to_comments_body:function () {
+            const href=window.location.href;
+            let result = href.includes("product/");
+            if (result){
+                let go_to_comments_body=document.getElementById('go_to_comments_body');
+                let comments_body = document.getElementById("comments-body");
+                go_to_comments_body.onclick=function () {
+                    comments_body.scrollIntoView({behavior: 'smooth'});
+                }
+            }
+        }
     }
 }
 </script>

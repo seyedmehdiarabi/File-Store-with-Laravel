@@ -6,5 +6,7 @@
     "/modules/visitStatistics/component.js": "/modules/visitStatistics/component.js",
     "/modules/cart/component.js": "/modules/cart/component.js",
     "/modules/discount/component.js": "/modules/discount/component.js",
-    "/modules/orders/component.js": "/modules/orders/component.js"
+    "/modules/orders/component.js": "/modules/orders/component.js",
+    "/modules/shop/component.js": "/modules/shop/component.js",
+    "/modules/comments/component.js": "/modules/comments/component.js"
 }

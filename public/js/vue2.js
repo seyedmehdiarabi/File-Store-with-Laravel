@@ -42182,6 +42182,8 @@ __webpack_require__.e(/*! import() | visitStatistics */ "visitStatistics").then(
 __webpack_require__.e(/*! import() | cart */ "cart").then(__webpack_require__.t.bind(__webpack_require__, /*! ../../modules/cart/resources/js/components.js */ "./modules/cart/resources/js/components.js", 23));
 __webpack_require__.e(/*! import() | discount */ "discount").then(__webpack_require__.t.bind(__webpack_require__, /*! ../../modules/discount/resources/js/components.js */ "./modules/discount/resources/js/components.js", 23));
 __webpack_require__.e(/*! import() | orders */ "orders").then(__webpack_require__.t.bind(__webpack_require__, /*! ../../modules/orders/resources/js/components.js */ "./modules/orders/resources/js/components.js", 23));
+__webpack_require__.e(/*! import() | shop */ "shop").then(__webpack_require__.t.bind(__webpack_require__, /*! ../../modules/shop/resources/js/components.js */ "./modules/shop/resources/js/components.js", 23));
+__webpack_require__.e(/*! import() | comments */ "comments").then(__webpack_require__.t.bind(__webpack_require__, /*! ../../modules/comments/resources/js/components.js */ "./modules/comments/resources/js/components.js", 23));
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use((vue_persian_datetime_picker__WEBPACK_IMPORTED_MODULE_4___default()), {
   name: 'date-picker',

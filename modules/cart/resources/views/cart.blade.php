@@ -12,8 +12,8 @@
                 @endphp
                 @foreach(\Illuminate\Support\Facades\Session::get('cart') as $key=>$value)
                     @php
-                        $products[]=\App\Models\Product::findOrFail($key);
-                        $single_product=\App\Models\Product::findOrFail($key);
+                        $products[]=\Modules\products\Models\Product::findOrFail($key);
+                        $single_product=\Modules\products\Models\Product::findOrFail($key);
                         $price=$single_product->price;
                         $total_price+=$price;
                         $cart_price+=$price;

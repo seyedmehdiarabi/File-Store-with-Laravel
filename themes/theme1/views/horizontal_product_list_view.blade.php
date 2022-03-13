@@ -19,15 +19,15 @@
                             </div>
                             <div class="px-2">
                                 <h3 class="my-3">
-                                    @if(strlen($product->title)>60)
-                                        {{ mb_substr($product->title,0,60).' ... ' }}
+                                    @if(strlen(strip_tags($product->title,60))>60)
+                                        {!! mb_substr(strip_tags($product->title),0,60).'...' !!}
                                     @else
-                                        {{ $product->title  }}
+                                        {!! $product->title !!}
                                     @endif
                                 </h3>
                                 <div class="mt-4 mb-3">
-                                    @if(strlen($product->text)>270)
-                                        {!! mb_substr($product->text,0,270).' ... ' !!}
+                                    @if(strlen(strip_tags($product->text,200))>200)
+                                        {!! mb_substr(strip_tags($product->text),0,200).'...' !!}
                                     @else
                                         {!! $product->text !!}
                                     @endif

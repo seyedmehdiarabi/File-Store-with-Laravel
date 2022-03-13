@@ -134,8 +134,8 @@
                                             <h4><a class="router-link tag_a_color bold font-size-14"
                                                    href="{{ url('product/'.$value->slug) }}">{{$value->title}}</a></h4>
                                             <div class="mt-4 mb-3 font-size-12 px-2">
-                                                @if(strlen($value->text)>150)
-                                                    {!! mb_substr($value->text,0,150).' ... ' !!}
+                                                @if(strlen(strip_tags($value->text,100))>100)
+                                                    {!! mb_substr(strip_tags($value->text),0,100).'...' !!}
                                                 @else
                                                     {!! $value->text !!}
                                                 @endif

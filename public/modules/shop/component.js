@@ -1,12 +1,12 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["cart"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["shop"],{
 
-/***/ "./modules/cart/resources/js/components.js":
+/***/ "./modules/shop/resources/js/components.js":
 /*!*************************************************!*\
-  !*** ./modules/cart/resources/js/components.js ***!
+  !*** ./modules/shop/resources/js/components.js ***!
   \*************************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Vue.component('site-table', (__webpack_require__(/*! ../../../shop/resources/js/components/SiteTable */ "./modules/shop/resources/js/components/SiteTable.vue")["default"]));
+Vue.component('site-table', (__webpack_require__(/*! ./components/SiteTable */ "./modules/shop/resources/js/components/SiteTable.vue")["default"]));
 
 /***/ }),
 

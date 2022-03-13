@@ -12,6 +12,9 @@ import(/* webpackChunkName:'visitStatistics' */'../../modules/visitStatistics/re
 import(/* webpackChunkName:'cart' */'../../modules/cart/resources/js/components.js');
 import(/* webpackChunkName:'discount' */'../../modules/discount/resources/js/components.js');
 import(/* webpackChunkName:'orders' */'../../modules/orders/resources/js/components.js');
+import(/* webpackChunkName:'shop' */'../../modules/shop/resources/js/components.js');
+import(/* webpackChunkName:'comments' */'../../modules/comments/resources/js/components.js');
+
 
 
 

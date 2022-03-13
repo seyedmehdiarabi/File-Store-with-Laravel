@@ -72,7 +72,7 @@
                 <div class="d-flex justify-between">
                     <div class="d-flex align-center">
                         <img class="w-20 h-20 ml-5 rounded-circle border_img bg-gray-300"
-                             :src="row1['get_user_info'] && row1['get_user_info']['pic_profile'] ? $siteUrl+row1['get_user_info']['pic_profile'] : '/files/icons/default_user.png'"
+                             :src="row1['get_user_info'] && row1['get_user_info']['pic_profile'] ? $siteUrl+'/files/upload/'+row1['get_user_info']['pic_profile'] : '/files/icons/default_user.png'"
                              alt="عکس نمایه شخصی">
                         <div>
 

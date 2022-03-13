@@ -410,3 +410,180 @@ function vue_component_detail($module)
 }
 
 
+function headers_table_admin($columns){
+    $headers=[];
+    $headers[0]=[
+        'text'=>'#',
+        'align'=>'center'
+    ];
+    $headers[1]=[
+        'text'=>'ردیف',
+        'align'=>'center'
+    ];
+
+    foreach ($columns as $column){
+        $headers[]=[
+            'text'=>$column,
+            'align'=>'center'
+        ];
+    }
+
+    return $headers;
+}
+
+function items_table_admin($category){
+    $items=[];
+    $i=(isset($_GET['page'])) ? (($_GET['page']-1)*20) : 0 ;
+    foreach ($category as $key=>$value){
+        dd($value);
+        $i++;
+        $items[$key]=[
+            'column0'=>'<v-checkbox></v-checkbox>',
+            'column1'=>replace_number($i)
+        ];
+        $j=0;
+    }
+    return $items;
+}
+
+function table_index($columns,$model,$url,$label,$actions=false,$removeEditLink=true,$removeDeleteLink=true){
+    $headers=[];
+    $key=0;
+    if($removeDeleteLink){
+        $headers[0]=[
+            'text'=>'#',
+            'align'=>'center'
+        ];
+        $key=1;
+    }
+    $headers[$key]=[
+        'text'=>'ردیف',
+        'align'=>'center'
+    ];
+    foreach ($columns as $column) {
+        $headers[] = [
+            'text' => $column['label'],
+            'align' => 'center'
+        ];
+    }
+    if($removeDeleteLink || $removeEditLink || $actions){
+        $headers[]=[
+            'text'=>'عملیات',
+            'align'=>'center'
+        ];
+    }
+    $i=(isset($_GET['page'])) ? (($_GET['page']-1)*20) : 0 ;
+    foreach ($model as $key=>$value){
+        $i++;
+        if($removeDeleteLink){
+            $items[$key]['column0']='<v-checkbox name="'.$url.'_id" value="'.$value->id.'"></v-checkbox>';
+            $items[$key]['column1']=replace_number($i);
+            $j=2;
+        }
+        else{
+            $items[$key]['column0']=replace_number($i);
+            $j=1;
+        }
+        foreach ($columns as $column){
+            $v= getColumnValue($column['attr'],$value);
+            $c='column'.$j;
+            if(array_key_exists('html',$column) && $column['html']==true){
+                $items[$key][$c]=$v;
+            }else{
+                $items[$key][$c]=Htmlspecialchars($v,ENT_QUOTES);
+            }
+            $j++;
+        }
+        $items[$key]['column'.$j]=getAction($value,$url,$label,$actions,$removeEditLink,$removeDeleteLink);
+    }
+    $items= !empty($items) ? $items : '0';
+    $result =['headers'=>$headers,'items'=>$items];
+    return $result;
+}
+function site_table($columns,$model,$delete_icon=false){
+    $headers=[];
+    $headers[0]=[
+        'text'=>'ردیف',
+        'align'=>'center'
+    ];
+    foreach ($columns as $column) {
+        $headers[] = [
+            'text' => $column['label'],
+            'align' => 'center'
+        ];
+    }
+    if ($delete_icon){
+        $headers[]=[
+            'text'=>'حذف',
+            'align'=>'center'
+        ];
+    }
+    $i=(isset($_GET['page'])) ? (($_GET['page']-1)*20) : 0 ;
+    foreach ($model as $key=>$value){
+        $i++;
+        $items[$key]=[
+            'column0'=>replace_number($i),
+        ];
+        $j=1;
+        foreach ($columns as $column){
+            $v= getColumnValue($column['attr'],$value);
+            $c='column'.$j;
+            if(array_key_exists('html',$column) && $column['html']==true){
+                $items[$key][$c]=$v;
+            }else{
+                $items[$key][$c]=Htmlspecialchars($v,ENT_QUOTES);
+            }
+            $j++;
+        }
+        if ($delete_icon){
+            $items[$key]['column'.$j]=getActionSiteTable($value);
+        }
+    }
+    $items= !empty($items) ? $items : '0';
+    $result =['headers'=>$headers,'items'=>$items];
+    return $result;
+}
+
+function getColumnValue($attr,$value){
+    if(is_string($attr)){
+        $v=$value->$attr;
+    }
+    else{
+        $v=$attr($value);
+    }
+    return $v;
+}
+function getAction($value,$url,$label,$actions,$removeEditLink,$removeDeleteLink){
+    $res='';
+    $res.='<div class="d-flex flex-row justify-center">';
+    if (!method_exists($value,'trashed') || !$value->trashed()){
+        if ($removeEditLink){
+            $res.='<a class="router-link" href="'.$url.'/'.$value->id.'/'.'edit'.'">
+                            <v-icon color="primary">mdi-circle-edit-outline</v-icon>
+                       </a>';
+        }
+    }else{
+        $res.='<restore-link row-id="'.$value->id.'" label="'.$label.'" url="'.$url.'/'.$value->id.'/'.''.'"></restore-link>';
+    }
+    $sendTrash='yes';
+    if (method_exists($value,'trashed') && $value->trashed()){
+        $sendTrash='no';
+    }
+    if ($removeDeleteLink){
+        $res.='<delete-link row-id="'.$value->id.'" label="'.$label.'" sendTrash="'.$sendTrash.'" url="'.$url.'/'.$value->id.'/'.''.'"></delete-link>';
+    }
+    if ($actions){
+        foreach ($actions as $action){
+            $res.=$action($value);
+        }
+    }
+    $res.='</div>';
+    return $res;
+}
+function getActionSiteTable($value){
+    $res='';
+    $res.='<div class="d-flex flex-row justify-center">';
+    $res.='<delete-link row-id="'.$value->id.'" label="محصول" sendTrash="del_cart" url="'.url('del_cart').'/'.$value->id.'"></delete-link>';
+    $res.='</div>';
+    return $res;
+}

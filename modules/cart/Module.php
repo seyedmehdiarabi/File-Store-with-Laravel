@@ -11,9 +11,5 @@ use Session;
 class Module
 {
 
-    public function registerComponent(){
-        if(!request()->is('admin/*')){
-            return vue_component_detail('cart');
-        }
-    }
+
 }

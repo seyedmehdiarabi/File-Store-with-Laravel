@@ -17,6 +17,7 @@
 <div id="app">
     <v-app class="app-style">
         <progress-box ref="progress_box"></progress-box>
+
         <header-search :login="{{json_encode(Auth::user())}}"></header-search>
         <app-content>
             @yield('content')
