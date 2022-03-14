@@ -25,14 +25,14 @@
                 </tr>
             </template>
         </v-data-table>
-        <div class="mt-5 mx-2 pa-4 rounded-lg bg-white elevation-1" v-if="cart">
+<!--        <div class="mt-5 mx-2 pa-4 rounded-lg bg-white elevation-1" v-if="cart">
             <v-form ref="form">
                 <div  class="w-100 mt-4 mx-4 row">
                     <v-text-field v-model="discount" :rules="discountRules" class="col-12 col-lg-5 col-md-5" name="discount" label="کد تخفیف" outlined></v-text-field>
                     <v-btn text color="primary" class="pa-2 mx-2 mt-3 rounded-lg cursor-pointer" @click="send_discount">ارسال</v-btn>
                 </div>
             </v-form>
-        </div>
+        </div>-->
     </div>
     <div v-else class="">رکوردی برای نمایش وجود ندارد</div>
 </template>

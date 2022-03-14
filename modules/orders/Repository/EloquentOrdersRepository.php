@@ -17,12 +17,12 @@ use Session;
 
 class EloquentOrdersRepository extends EloquentBaseRepository implements OrdersRepositoryInterface
 {
-    protected $model = 'Modules\orders\Models\Orders';
+    protected $model = 'Modules\orders\Models\Order';
 
 
     public function find($id)
     {
-        $order = Orders::with('getUserInfo','getDiscount')->where(['id' => $id])->firstOrFail();
+        $order = Order::with('getUserInfo','getDiscount')->where(['id' => $id])->firstOrFail();
         if ($order->order_read == 'no' && \Auth::user()->role == 'admin') {
             $order->order_read = 'ok';
             $order->update();
@@ -37,12 +37,12 @@ class EloquentOrdersRepository extends EloquentBaseRepository implements OrdersR
 
     public function trashCount()
     {
-        return Orders::onlyTrashed()->count();
+        return Order::onlyTrashed()->count();
     }
 
     public function getList($request)
     {
-        return Orders::getData($request->all());
+        return Order::getData($request->all());
     }
 
     public function update($id, $request)

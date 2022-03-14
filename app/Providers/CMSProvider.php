@@ -100,17 +100,11 @@ class CMSProvider extends ServiceProvider
             'url' => url('/')
         ], 0);
         add_panel_menu([
-            'label' => 'پروفایل کاربری',
-            'icon' => 'mdi-shield-account',
-            'access' => 'public',
-            'url' => url('user/profile')
-        ], 1);
-        add_panel_menu([
             'label' => 'میزکار',
             'icon' => 'mdi-desktop-classic',
             'access' => 'public',
             'url' => url('admin')
-        ], 2);
+        ], 1);
         add_panel_menu([
             'name' => 'finance',
             'label' => 'امور مالی',

@@ -1,6 +1,6 @@
 @extends('front-theme::layouts.app')
 
-@section('header')
+@section('head')
     <title>{{$product->title}}</title>
 @endsection
 @section('content')

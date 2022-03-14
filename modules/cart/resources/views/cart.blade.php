@@ -1,9 +1,9 @@
 @extends('front-theme::layouts.app')
-@section('header')
+@section('head')
     <title>سبد خرید</title>
 @endsection
 @section('content')
-    <div class="bg-gray-50">
+    <div class="bg-gray-50" style="min-height: 400px">
         <div class="custom-container pt-8 mb-16 pb-16">
             @if(\Illuminate\Support\Facades\Session::has('cart'))
                 @php

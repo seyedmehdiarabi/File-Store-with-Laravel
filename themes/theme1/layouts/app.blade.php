@@ -22,6 +22,8 @@
         <app-content>
             @yield('content')
         </app-content>
+        <response-dialog></response-dialog>
+
 
         @include('position_view',['name'=>'desktop_layout'])
         <div class="footer">

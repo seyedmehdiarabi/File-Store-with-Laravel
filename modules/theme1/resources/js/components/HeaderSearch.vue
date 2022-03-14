@@ -20,10 +20,6 @@
             <v-divider></v-divider>
             <v-row class="custom-container my-3">
                 <v-toolbar-title class="brand">فروش فايل</v-toolbar-title>
-                <div class="container1" style="margin: 0 auto">
-                    <input type="text" placeholder="دنبال چی میگردی؟">
-                    <div class="search"></div>
-                </div>
                 <div class="d-flex align-center mr-auto" style="z-index: 2">
                     <v-badge
                         class="mx-10 cursor-pointer"

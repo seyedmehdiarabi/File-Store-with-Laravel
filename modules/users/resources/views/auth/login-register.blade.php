@@ -1,5 +1,5 @@
 @extends("users::auth.layouts.auth")
-@section('header')
+@section('head')
     <title>ورود - ثبت نام</title>
 @endsection
 @section('content')

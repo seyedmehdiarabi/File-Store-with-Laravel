@@ -315,54 +315,6 @@ var render = function () {
               2826625996
             ),
           }),
-          _vm._v(" "),
-          _vm.cart
-            ? _c(
-                "div",
-                {
-                  staticClass: "mt-5 mx-2 pa-4 rounded-lg bg-white elevation-1",
-                },
-                [
-                  _c("v-form", { ref: "form" }, [
-                    _c(
-                      "div",
-                      { staticClass: "w-100 mt-4 mx-4 row" },
-                      [
-                        _c("v-text-field", {
-                          staticClass: "col-12 col-lg-5 col-md-5",
-                          attrs: {
-                            rules: _vm.discountRules,
-                            name: "discount",
-                            label: "کد تخفیف",
-                            outlined: "",
-                          },
-                          model: {
-                            value: _vm.discount,
-                            callback: function ($$v) {
-                              _vm.discount = $$v
-                            },
-                            expression: "discount",
-                          },
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "v-btn",
-                          {
-                            staticClass:
-                              "pa-2 mx-2 mt-3 rounded-lg cursor-pointer",
-                            attrs: { text: "", color: "primary" },
-                            on: { click: _vm.send_discount },
-                          },
-                          [_vm._v("ارسال")]
-                        ),
-                      ],
-                      1
-                    ),
-                  ]),
-                ],
-                1
-              )
-            : _vm._e(),
         ],
         1
       )

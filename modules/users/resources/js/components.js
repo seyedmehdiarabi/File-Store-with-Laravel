@@ -16,4 +16,5 @@ Vue.component('user-edit-reagent',require('./components/UserEditReagent').defaul
 Vue.component('user-edit-introduction',require('./components/UserEditIntroduction').default);
 Vue.component('user-edit-description',require('./components/UserEditDescription').default);
 Vue.component('list-item-profile',require('./components/ListItemProfile').default);
+Vue.component('details-profile',require('./components/DetailsProfile').default);
 

@@ -14,7 +14,7 @@
     color: white;
 }
 .v-list-item--active{
-    background: rebeccapurple !important;
+    background: #d2e9ff !important;
     color: white !important;
 }
 .v-navigation-drawer__content{

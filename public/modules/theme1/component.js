@@ -240,10 +240,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "HeaderSearch",
   props: ['login'],
@@ -1774,24 +1770,6 @@ var render = function () {
                   _c("v-toolbar-title", { staticClass: "brand" }, [
                     _vm._v("فروش فايل"),
                   ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "container1",
-                      staticStyle: { margin: "0 auto" },
-                    },
-                    [
-                      _c("input", {
-                        attrs: {
-                          type: "text",
-                          placeholder: "دنبال چی میگردی؟",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "search" }),
-                    ]
-                  ),
                   _vm._v(" "),
                   _c(
                     "div",

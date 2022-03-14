@@ -1,6 +1,6 @@
 @extends('backend-theme::layout')
 
-@section('header')
+@section('head')
     <title>مدیریت کامنت‌ها</title>
 @endsection
 
